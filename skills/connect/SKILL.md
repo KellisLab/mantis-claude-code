@@ -37,4 +37,6 @@ That installs the **mantis@mantis-plugins** Claude Code plugin and saves API/spa
 
 Then: **`/reload-plugins`** in Claude Code (if already open). Confirm **API URL** when prompted (`http://localhost:8000` for local).
 
+If `/plugin` shows *unsupported source type*: remove **mantis@mantis-plugins**, run `mantis-setup` again (needs marketplace with `npm` plugin source, not `"."`), or start Claude with `--plugin-dir` pointing at the global npm package folder.
+
 For connection errors: URL must end with `/mcp_integrated/`; avoid `/mcp/mcp` unless their deployment uses it.
