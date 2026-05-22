@@ -33,7 +33,8 @@
     "skills",
     "bin",
     "lib",
-    "LICENSE"
+    "LICENSE",
+    "README.md"
   ],
   "engines": {
     "node": ">=18"
