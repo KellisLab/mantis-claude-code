@@ -1,0 +1,62 @@
+---
+description: Create a Mantis map from a local CSV or XLSX file using the mantis CLI. Use when the user wants to upload a dataset, configure field types, or turn a CSV into a Mantis map.
+argument-hint: [csv-or-xlsx-path]
+allowed-tools: Bash, AskUserQuestion
+disable-model-invocation: true
+---
+
+# Create Mantis Map
+
+Use the local `mantis create map` CLI. Prefer passing arguments explicitly so this works for agents and humans.
+
+## Steps
+
+1. Get the local CSV/XLSX path from `$ARGUMENTS` or ask the user for it.
+
+2. Inspect the header row if it is a CSV. Decide field types:
+   - `title`: one human-readable identifier column, usually `title`, `name`, `path`, or `file`.
+   - `semantic`: text columns to embed, usually `content`, `summary`, `description`, `text`, or `body`.
+   - `categoric`: labels like `language`, `kind`, `extension`, `category`.
+   - `numeric`: measurements like `loc`, `bytes`, `score`, `count`.
+   - `date`: date/time columns.
+   - `links`: URL columns.
+   - ignored columns go in `--delete-column`.
+
+3. Ask where to put the map if the user did not specify:
+   - new space
+   - existing space
+
+4. Run `mantis create map` with explicit flags. Example:
+
+```bash
+mantis create map "./dataset.csv" \
+  --space-mode new \
+  --space-name "Codebase Index" \
+  --private \
+  --map-name "Source Files" \
+  --title-column "path" \
+  --semantic-column "summary,content" \
+  --categoric-column "language,kind,extension" \
+  --numeric-column "loc,bytes" \
+  --activate \
+  --thread-name "Dataset Exploration"
+```
+
+For an existing space:
+
+```bash
+mantis create map "./dataset.csv" \
+  --space-mode existing \
+  --space-id "<space-uuid>" \
+  --map-name "Source Files" \
+  --title-column "path" \
+  --semantic-column "summary,content"
+```
+
+5. Report the created space link and map id from the JSON output. If `--activate` was used, tell the user to run `/reload-plugins`.
+
+## Notes
+
+- If the user wants a fully interactive human flow, run only `mantis create map "./dataset.csv"`.
+- If Claude Code is driving the flow, avoid interactive prompts by passing flags.
+- Use `mantis setup` first if the CLI says API key or URL is missing.

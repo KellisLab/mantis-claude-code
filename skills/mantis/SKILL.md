@@ -9,10 +9,10 @@ Mantis is a spatial data workspace: **spaces** contain **maps** (embeddings of d
 
 ## Connection
 
-1. User runs `mantis-setup` (or `/mantis:connect`) with a Developer API key from the Mantis portal.
+1. User runs `mantis setup` (or `/mantis:connect`) with a Developer API key from the Mantis portal.
 2. MCP endpoint: `{api_base_url}/mcp_integrated/` (trailing slash required).
 3. Required header on every MCP request: `**X-Space-State-ID`** = thread UUID from setup (setup writes this into the plugin MCP config).
-4. After changing space/thread: `mantis-select` then ask the user to run `**/reload-plugins**`.
+4. After changing space/thread: `mantis select` then ask the user to run `**/reload-plugins**`.
 
 ## REST (setup only)
 
@@ -46,7 +46,7 @@ Space management tools (`create_space`, `create_map_from_url`, etc.) need sessio
 - `/mantis:connect` — first-time setup (API key)
 - `/mantis:space` — pick space via **AskUserQuestion** (↑↓ in Claude UI; optional filter: `/mantis:space atlas`)
 - `/mantis:thread` — pick thread the same way
-- Terminal pickers: `mantis-pick-space` / `mantis-pick-thread` if the in-chat menu fails
+- Terminal pickers: `mantis select space` / `mantis select thread` if the in-chat menu fails
 - `/mantis:status` — show current space/thread
 
 After **`/mantis:thread`** only, run `/reload-plugins` once (MCP headers are fixed at connect time). Space-only changes do not need a reload until a thread is set.

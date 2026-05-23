@@ -25,7 +25,7 @@ If JSON has `space`, run `mantis-set-space.js` with that id and name, then stop 
 node "${CLAUDE_PLUGIN_ROOT}/bin/mantis-list-spaces.js" --filter "$ARGUMENTS"
 ```
 
-Parse the JSON. On `error`, tell the user to run `mantis-setup` in a terminal.
+Parse the JSON. On `error`, tell the user to run `mantis setup` in a terminal.
 
 3. **AskUserQuestion** (max 4 options per call):
    - If the user pasted a link in chat, pass it as `$ARGUMENTS` or run step 1 with that URL.
@@ -56,7 +56,7 @@ Use the UUID from the selected option's **description**, not the label.
 If AskUserQuestion does not appear (known CC bug in some versions), tell the user to run in a separate terminal:
 
 ```bash
-mantis-pick-space
+mantis select space
 ```
 
 Then `/reload-plugins`.

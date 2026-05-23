@@ -12,7 +12,7 @@ if (!arg) {
 
 const cfg = loadConfig();
 if (!cfg.apiKey || !cfg.apiBaseUrl || !cfg.spaceId) {
-  console.error('Run mantis-setup and pick a space first.');
+  console.error('Run mantis setup and pick a space first.');
   process.exit(1);
 }
 

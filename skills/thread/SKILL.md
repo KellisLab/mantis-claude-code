@@ -39,5 +39,5 @@ If error mentions space, tell user to run **`/mantis:space`** first.
 ## Terminal fallback
 
 ```bash
-mantis-pick-thread
+mantis select thread
 ```

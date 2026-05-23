@@ -11,7 +11,7 @@ if (!input) {
 try {
   const cfg = loadConfig();
   if (!cfg.apiKey || !cfg.apiBaseUrl) {
-    throw new Error('Run mantis-setup first (API key + URL).');
+    throw new Error('Run mantis setup first (API key + URL).');
   }
   const space = await resolveSpaceFromInput(cfg.apiBaseUrl, cfg.apiKey, input);
   if (!space) {

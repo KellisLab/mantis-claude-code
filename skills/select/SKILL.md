@@ -10,7 +10,7 @@ Prefer the interactive slash commands (arrow keys + filter as you type):
 - **`/mantis:space`** — pick a space
 - **`/mantis:thread`** — pick a thread (after space)
 
-Legacy CLI: `mantis-select` or `node "${CLAUDE_PLUGIN_ROOT}/bin/mantis-select.js"`.
+CLI fallback: `mantis select` or `node "${CLAUDE_PLUGIN_ROOT}/bin/mantis.js" select`.
 
 After a change, run **`/reload-plugins`**.
 

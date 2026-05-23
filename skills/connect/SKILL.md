@@ -8,13 +8,13 @@ disable-model-invocation: true
 Run the interactive setup in the user's terminal:
 
 ```bash
-mantis-setup
+mantis setup
 ```
 
 If the plugin is not on PATH, use:
 
 ```bash
-node "${CLAUDE_PLUGIN_ROOT}/bin/mantis-setup.js"
+node "${CLAUDE_PLUGIN_ROOT}/bin/mantis.js" setup
 ```
 
 The wizard will:
@@ -24,13 +24,13 @@ The wizard will:
 3. Pick or create a **space state** (thread).
 4. Save config for MCP headers (`X-Space-State-ID`).
 
-After setup, switch context with **`/mantis:space`** and **`/mantis:thread`** (Claude Code **AskUserQuestion** menu with arrow keys). Terminal: `mantis-pick-space` / `mantis-pick-thread`.
+After setup, switch context with **`/mantis:space`** and **`/mantis:thread`** (Claude Code **AskUserQuestion** menu with arrow keys). Terminal: `mantis select space` / `mantis select thread`.
 
-If they have not run **`mantis-setup`** yet, tell them:
+If they have not run **`mantis setup`** yet, tell them:
 
 ```bash
-npm install -g mantis-claude-code
-mantis-setup
+npm install -g mantis-cli
+mantis setup
 ```
 
 That installs the **mantis@mantis-plugins** Claude Code plugin and saves API/space/thread config.

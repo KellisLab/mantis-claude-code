@@ -8,13 +8,13 @@ disable-model-invocation: true
 Run in the terminal:
 
 ```bash
-mantis-status
+mantis status
 ```
 
 Or:
 
 ```bash
-node "${CLAUDE_PLUGIN_ROOT}/bin/mantis-status.js"
+node "${CLAUDE_PLUGIN_ROOT}/bin/mantis.js" status
 ```
 
-Report the output to the user. If no thread is set, tell them to run `/mantis:connect` or `mantis-setup`, then `/reload-plugins`.
+Report the output to the user. If no thread is set, tell them to run `/mantis:connect` or `mantis setup`, then `/reload-plugins`.
